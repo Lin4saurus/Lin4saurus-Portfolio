@@ -1,0 +1,702 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carolina Aranibar</title>
+<meta name="description" content="Portafolio de Carolina Aranibar Huayta, desarrolladora Full Stack en Santa Cruz, Bolivia.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://carolina-aranibar.vercel.app/">
+<meta property="og:title" content="Carolina Aranibar · Desarrolladora Full Stack">
+<meta property="og:description" content="Proyectos, experiencia y CV en español e inglés (CV_ES / CV_EN).">
+<meta property="og:image" content="https://carolina-aranibar.vercel.app/img/foto.jpg">
+<meta property="og:image:width" content="600">
+<meta property="og:image:height" content="600">
+<meta name="twitter:card" content="summary">
+<link rel="canonical" href="https://carolina-aranibar.vercel.app/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='32' fill='%23343a40'/><text x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial' font-weight='700' font-size='28' fill='white'>CA</text></svg>">
+<style>
+:root{
+  --page:#ebe9e6; --card:#ffffff; --nav:#343a40; --nav-text:#9a9da1; --nav-active:#ffffff;
+  --text:#212529; --muted:#6c757d; --link:#007bff; --bar:#343a40; --bar-hover:#23272b; --bar-text:#ffffff;
+  --code-bg:#f3e8fd; --code:#a03ec0; --line:#e3e3e3; --soft:#f6f6f4;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --page:#1b1c1e; --card:#26282b; --nav:#141517; --nav-text:#8b8f94; --nav-active:#ffffff;
+    --text:#e6e6e6; --muted:#a0a4a8; --link:#5aa9ff; --bar:#3a3f45; --bar-hover:#454b52; --bar-text:#ffffff;
+    --code-bg:#3a2b45; --code:#e0a8f5; --line:#3a3d41; --soft:#2e3034;
+  }
+}
+:root[data-theme="dark"]{
+  --page:#1b1c1e; --card:#26282b; --nav:#141517; --nav-text:#8b8f94; --nav-active:#ffffff;
+  --text:#e6e6e6; --muted:#a0a4a8; --link:#5aa9ff; --bar:#3a3f45; --bar-hover:#454b52; --bar-text:#ffffff;
+  --code-bg:#3a2b45; --code:#e0a8f5; --line:#3a3d41; --soft:#2e3034;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--page);color:var(--text);font-family:Arial,"Helvetica Neue",Helvetica,sans-serif;font-size:15px;line-height:1.55}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline}
+img{max-width:100%;display:block}
+
+.sheet{max-width:1100px;margin:8px auto 40px;background:var(--card);box-shadow:0 4px 12px rgba(0,0,0,.28)}
+
+/* barra de navegación */
+nav{background:var(--nav);padding:0 14px;display:flex;flex-wrap:wrap;align-items:center}
+nav a{color:var(--nav-text);text-transform:uppercase;font-size:15px;padding:14px 6px;letter-spacing:.01em}
+nav a:hover{color:#d0d3d6;text-decoration:none}
+nav a.active{color:var(--nav-active)}
+
+/* pestañas */
+.tab{display:none;padding:22px 28px 26px}
+.tab.active{display:block}
+h1{font-weight:400;font-size:26px;margin:0 0 10px}
+h2{font-weight:400;font-size:21px;margin:26px 0 10px}
+
+/* inicio */
+.home{display:grid;grid-template-columns:200px 1fr;gap:32px}
+.side{text-align:center}
+.photo{position:relative;width:170px;height:170px;border-radius:50%;margin:4px auto 22px;overflow:hidden;background:linear-gradient(135deg,#6c5ce7,#e2488f);display:grid;place-items:center;color:#fff;font-size:56px;font-weight:700}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.social{list-style:none;padding:0;margin:0;display:grid;gap:3px;font-size:14.5px}
+.social a{display:inline-flex;align-items:center;gap:5px}
+.social svg{width:14px;height:14px}
+.cv-dl{display:flex;flex-wrap:wrap;gap:10px;margin:4px 0 14px}
+.cv-dl a{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:6px;background:var(--bar);color:var(--bar-text);font-size:14.5px}
+.cv-dl a:hover{background:var(--bar-hover);text-decoration:none}
+.cv-dl svg{width:15px;height:15px}
+.bio p{margin:0 0 14px}
+.bio ul{margin:0 0 18px;padding-left:22px}
+.bio li{margin:2px 0}
+code{background:var(--code-bg);color:var(--code);font-family:Consolas,Menlo,monospace;font-size:12.5px;padding:2px 4px;border-radius:3px}
+.updated{text-align:right;color:var(--muted);margin:30px 0 0}
+
+/* barras desplegables */
+.bars{display:grid;gap:8px}
+details{background:var(--card);scroll-margin-top:10px}
+summary{list-style:none;cursor:pointer;background:var(--bar);color:var(--bar-text);font-size:13px;padding:14px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary:hover{background:var(--bar-hover)}
+summary .meta{color:#b8bcc0;font-size:12px;white-space:nowrap;margin-left:auto}
+summary::after{content:"+";font-size:16px;line-height:1;color:#b8bcc0}
+details[open] summary::after{content:"−"}
+.panel{border:1px solid var(--line);border-top:0;padding:18px 18px 20px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:22px}
+.panel img{border:1px solid var(--line)}
+.panel p{margin:0 0 10px}
+.panel ul{margin:0 0 12px;padding-left:20px}
+.panel li{margin:2px 0}
+.label{color:var(--muted);font-size:13px;margin-bottom:8px}
+.badge{display:inline-block;font-size:11px;font-weight:700;padding:2px 7px;border-radius:3px;margin-right:6px;vertical-align:1px}
+.b-real{background:#d4edda;color:#155724}
+.b-hack{background:#fff3cd;color:#856404}
+.stack{color:var(--muted);font-size:13.5px;margin-bottom:10px}
+.links a{margin-right:14px}
+.placeholder{aspect-ratio:16/10;display:grid;place-items:center;background:linear-gradient(135deg,#0f2742,#0e5e6f);color:#fff;font-size:26px;font-weight:700;text-align:center}
+.placeholder small{display:block;font-size:13px;font-weight:400;color:#bfe3ef}
+
+/* experiencia */
+.job{padding:12px 0;border-bottom:1px solid var(--line)}
+.job:last-child{border-bottom:0}
+.job-head{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.job-head b{font-size:15.5px}
+.job-head span{color:var(--muted);font-size:13.5px}
+.job .role{font-style:italic;color:var(--muted)}
+.job ul{margin:4px 0 6px;padding-left:20px}
+.job ul li{margin:3px 0}
+.job .k{margin:6px 0 0}
+.intro{color:var(--muted);margin:0 0 6px}
+.job.extra{background:var(--soft);padding:12px 14px;margin:6px 0;border-left:3px solid #e0a800;border-bottom:0}
+
+.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 28px}
+.skills p{margin:4px 0}
+
+.cv-frame{width:100%;height:80vh;border:1px solid var(--line);margin-top:12px}
+
+html[lang="es"] .en, html[lang="en"] .es{display:none!important}
+.lang{margin-left:auto;background:none;border:1px solid #5a6066;border-radius:4px;color:var(--nav-text);cursor:pointer;font:inherit;font-size:12.5px;padding:3px 8px;letter-spacing:.04em}
+.lang b{color:#fff;font-weight:700}
+.lang:hover{border-color:#9a9da1}
+.theme{margin-left:8px;background:none;border:0;color:var(--nav-text);cursor:pointer;font-size:16px;padding:10px 4px}
+.theme:hover{color:#fff}
+
+@media (max-width:760px){
+  .sheet{margin:0}
+  .tab{padding:18px 16px 22px}
+  .home{grid-template-columns:1fr;gap:10px}
+  .social{grid-template-columns:repeat(3,auto);justify-content:center;gap:4px 14px;margin-bottom:10px}
+  .panel{grid-template-columns:1fr}
+  summary{flex-wrap:wrap}
+  summary .meta{margin-left:0;width:100%;order:3}
+  .skills{grid-template-columns:1fr}
+  nav{padding:0 8px}
+  nav a{font-size:13px;padding:12px 5px}
+  .cv-frame{height:60vh}
+}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <nav>
+    <a href="#inicio" data-tab="inicio"><span class="es">Inicio</span><span class="en">Home</span></a>
+    <a href="#proyectos" data-tab="proyectos"><span class="es">Proyectos</span><span class="en">Projects</span></a>
+    <a href="#experiencia" data-tab="experiencia"><span class="es">Experiencia</span><span class="en">Experience</span></a>
+    <a href="#cv" data-tab="cv">CV</a>
+    <button class="lang" id="langBtn" aria-label="Cambiar idioma / Change language" title="Español / English"><span class="es"><b>ES</b> · EN</span><span class="en">ES · <b>EN</b></span></button>
+    <button class="theme" id="themeBtn" aria-label="Cambiar tema" title="Cambiar tema">◐</button>
+  </nav>
+
+  <!-- INICIO -->
+  <section class="tab" id="inicio">
+    <div class="home">
+      <div class="side">
+        <div class="photo"><span>CA</span><img src="img/foto.jpg" alt="Carolina Aranibar" onerror="this.remove()"></div>
+        <ul class="social">
+          <li><a href="https://github.com/Lin4saurus" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.4 1.1 2.9.8.1-.6.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5a3.9 3.9 0 0 1 1-2.7 3.6 3.6 0 0 1 .1-2.7s.8-.3 2.8 1a9.6 9.6 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7a3.9 3.9 0 0 1 1 2.7c0 3.9-2.4 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg>Github</a></li>
+          <li><a href="https://wa.me/59161317418" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>WhatsApp</a></li>
+          <li><a href="mailto:linaaranibar@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span class="es">Correo</span><span class="en">Email</span></a></li>
+          <li><a href="#proyectos" data-tab="proyectos"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8"/></svg><span class="es">Proyectos</span><span class="en">Projects</span></a></li>
+          <li><a href="Carolina_Aranibar_CV_ES.pdf" download="Carolina_Aranibar_CV_ES.pdf" hreflang="es"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>CV_ES (Español)</a></li>
+          <li><a href="Carolina_Aranibar_CV_EN.pdf" download="Carolina_Aranibar_CV_EN.pdf" hreflang="en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>CV_EN (English)</a></li>
+        </ul>
+      </div>
+      <div class="bio es">
+        <p>Hola, soy <b>Carolina Aranibar Huayta</b>. Soy desarrolladora <b>Full Stack</b> en Santa Cruz, Bolivia, y egresada de Ingeniería en Sistemas de la Universidad Aquino Bolivia (UDABOL). Construyo software a medida para negocios reales: ERPs, automatizaciones con WhatsApp e inteligencia artificial, catálogos B2B y plataformas web.</p>
+        <p>Mis áreas de interés son:</p>
+        <ul>
+          <li>Desarrollo web Full Stack (React, Next.js, TypeScript, Node.js)</li>
+          <li>Automatización de procesos con n8n y WhatsApp</li>
+          <li>Inteligencia artificial aplicada a negocios</li>
+          <li>Bases de datos (PostgreSQL, Supabase)</li>
+        </ul>
+        <p>Durante 2026 trabajé como desarrolladora Full Stack en <a href="https://quicksell.store" target="_blank" rel="noopener">Quicksell.store</a>, una plataforma de e-commerce de alto tráfico, y en entrenamiento de modelos de IA para código en <a href="https://outlier.ai" target="_blank" rel="noopener">Outlier</a>.</p>
+        <p>Antes desarrollé sistemas para clientes como <a href="#proyectos" data-open="p-dulzura">Dulzura Pastelería</a>, <a href="#proyectos" data-open="p-shirley">Accesorios Shirley</a>, <a href="#proyectos" data-open="p-travel">Universal Tours</a> y <a href="#proyectos" data-open="p-telecom">Teleserv Group</a>. Todos están publicados y se pueden ver en la pestaña <a href="#proyectos" data-tab="proyectos">Proyectos</a>.</p>
+        <p>Si quieres hablar de un proyecto, una oportunidad laboral o tecnología en general, escríbeme por correo a <code>linaaranibar[at]gmail[dot]com</code> o por WhatsApp al <code>+591 61317418</code>.</p>
+      </div>
+      <div class="bio en">
+        <p>Hi, I'm <b>Carolina Aranibar Huayta</b>, a <b>Full Stack</b> developer based in Santa Cruz, Bolivia, who has completed all coursework in Systems Engineering at Universidad Aquino Bolivia (UDABOL). I build custom software for real businesses: ERPs, WhatsApp and AI automations, B2B catalogs and web platforms.</p>
+        <p>My areas of interest are:</p>
+        <ul>
+          <li>Full Stack web development (React, Next.js, TypeScript, Node.js)</li>
+          <li>Process automation with n8n and WhatsApp</li>
+          <li>Applied AI for business</li>
+          <li>Databases (PostgreSQL, Supabase)</li>
+        </ul>
+        <p>In 2026 I worked as a Full Stack developer at <a href="https://quicksell.store" target="_blank" rel="noopener">Quicksell.store</a>, a high-traffic e-commerce platform, and on training AI coding models at <a href="https://outlier.ai" target="_blank" rel="noopener">Outlier</a>.</p>
+        <p>Before that, I built systems for clients such as <a href="#proyectos" data-open="p-dulzura">Dulzura Pastelería</a>, <a href="#proyectos" data-open="p-shirley">Accesorios Shirley</a>, <a href="#proyectos" data-open="p-travel">Universal Tours</a> and <a href="#proyectos" data-open="p-telecom">Teleserv Group</a>. They are all live and you can explore them in the <a href="#proyectos" data-tab="proyectos">Projects</a> tab.</p>
+        <p>If you'd like to talk about a project, a job opportunity or tech in general, feel free to reach out by email at <code>linaaranibar[at]gmail[dot]com</code> or on WhatsApp at <code>+591 61317418</code>.</p>
+      </div>
+    </div>
+    <p class="updated"><span class="es">[Última actualización: <span class="upd-es"></span>]</span><span class="en">[Last updated on <span class="upd-en"></span>]</span></p>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section class="tab" id="proyectos">
+    <div class="es">
+    <h1>Proyectos de software</h1>
+    <div class="bars">
+
+      <details id="p-dulzura">
+        <summary>ERP de pastelería con pedidos por WhatsApp <span class="meta">Dulzura Pastelería · 2025</span></summary>
+        <div class="panel">
+          <a href="https://bakery-erp-whatsapp.vercel.app" target="_blank" rel="noopener"><img src="img/bakery-erp-whatsapp.png" alt="Panel del ERP de Dulzura Pastelería" loading="lazy"></a>
+          <div>
+            <div class="label"><span class="badge b-real">CLIENTE REAL</span>ERP · Automatización</div>
+            <p>Sistema de gestión a medida que reemplazó los Excel del negocio, con pedidos que llegan desde WhatsApp.</p>
+            <ul>
+              <li>Motor de costeo de recetas y sub-recetas con control de stock automático.</li>
+              <li>Pedidos, caja, gastos, clientes, punto de equilibrio y reportes.</li>
+              <li>Instalador de escritorio, respaldo por Gmail y actualización desde GitHub.</li>
+            </ul>
+            <div class="stack"><b>Stack:</b> React, TypeScript, Node.js, Express, Prisma, SQLite, n8n</div>
+            <div class="links"><a href="https://bakery-erp-whatsapp.vercel.app" target="_blank" rel="noopener">Ver demo</a><a href="https://github.com/Lin4saurus/bakery-erp-whatsapp" target="_blank" rel="noopener">Código</a></div>
+          </div>
+        </div>
+      </details>
+
+      <details id="p-shirley">
+        <summary>Agente de ventas para lives de TikTok <span class="meta">Accesorios Shirley · 2025</span></summary>
+        <div class="panel">
+          <a href="https://tiktok-live-sales-agent.vercel.app" target="_blank" rel="noopener"><img src="img/tiktok-live-sales-agent.png" alt="Panel de ventas en vivo de TikTok" loading="lazy"></a>
+          <div>
+            <div class="label"><span class="badge b-real">CLIENTE REAL</span>IA · Agente de ventas</div>
+            <p>El cliente envía por WhatsApp la captura del live; una IA de visión lee el nickname y el precio, registra la venta, agrupa la cuenta y envía el QR de cobro.</p>
+            <ul>
+              <li>Lectura de capturas y comprobantes de pago con Google Gemini.</li>
+              <li>Detección de comprobantes repetidos (posible estafa) y modo “atiendo yo”.</li>
+              <li>Panel en tiempo real: pendientes, por revisar y pagadas.</li>
+            </ul>
+            <div class="stack"><b>Stack:</b> n8n, JavaScript, PostgreSQL, Gemini AI, WhatsApp API, Docker</div>
+            <div class="links"><a href="https://tiktok-live-sales-agent.vercel.app" target="_blank" rel="noopener">Ver demo</a><a href="https://github.com/Lin4saurus/tiktok-live-sales-agent" target="_blank" rel="noopener">Código</a></div>
+          </div>
+        </div>
+      </details>
+
+      <details id="p-travel">
+        <summary>Plataforma de asesoría y venta de viajes <span class="meta">Universal Tours · 2024</span></summary>
+        <div class="panel">
+          <a href="https://travel-advisor-platform.vercel.app" target="_blank" rel="noopener"><img src="img/travel-advisor-platform.png" alt="Página de inicio de Universal Tours" loading="lazy"></a>
+          <div>
+            <div class="label"><span class="badge b-real">CLIENTE REAL</span>Plataforma web</div>
+            <p>Destinos, paquetes, experiencias y eventos con cotización personalizada y un panel administrativo protegido.</p>
+            <ul>
+              <li>Buscador de viajes por destino, tipo, duración y presupuesto.</li>
+              <li>Cotizaciones guardadas en Supabase.</li>
+              <li>Panel admin con Supabase Auth y autorización en cada acción del servidor.</li>
+            </ul>
+            <div class="stack"><b>Stack:</b> Next.js 16, React 19, TypeScript, Tailwind CSS v4, Supabase</div>
+            <div class="links"><a href="https://travel-advisor-platform.vercel.app" target="_blank" rel="noopener">Ver sitio</a><a href="https://github.com/Lin4saurus/travel-advisor-platform" target="_blank" rel="noopener">Código</a></div>
+          </div>
+        </div>
+      </details>
+
+      <details id="p-telecom">
+        <summary>Catálogo B2B para mayorista de telecomunicaciones <span class="meta">Teleserv Group · 2023</span></summary>
+        <div class="panel">
+          <a href="https://telecom-b2b-catalog.vercel.app" target="_blank" rel="noopener"><img src="img/telecom-b2b-catalog.png" alt="Página de inicio de Teleserv Group" loading="lazy"></a>
+          <div>
+            <div class="label"><span class="badge b-real">CLIENTE REAL</span>Sitio B2B</div>
+            <p>Sitio corporativo pensado para convertir visitas en oportunidades de venta: catálogo → ficha de producto → cotización.</p>
+            <ul>
+              <li>Catálogo filtrable por marca y tecnología, fichas generadas estáticamente (SEO).</li>
+              <li>Formulario de cotización que ya sabe qué producto se consulta.</li>
+              <li>Row Level Security: la clave pública solo puede insertar, nunca leer.</li>
+            </ul>
+            <div class="stack"><b>Stack:</b> Next.js, TypeScript, Tailwind CSS, Supabase, PostgreSQL</div>
+            <div class="links"><a href="https://telecom-b2b-catalog.vercel.app" target="_blank" rel="noopener">Ver sitio</a><a href="https://github.com/Lin4saurus/telecom-b2b-catalog" target="_blank" rel="noopener">Código</a></div>
+          </div>
+        </div>
+      </details>
+
+      <details id="p-medicae">
+        <summary>Medicae: gestión de cuidadoras y pacientes <span class="meta">No Country (hackathon) · 2026</span></summary>
+        <div class="panel">
+          <div class="placeholder"><div>Medicae<small>Plataforma de cuidado de pacientes</small></div></div>
+          <div>
+            <div class="label"><span class="badge b-hack">HACKATHON</span>Simulación laboral · Equipo de 4</div>
+            <p>Aplicación web hecha en equipo que conecta familias, cuidadoras y administración, con paneles por rol.</p>
+            <ul>
+              <li>API REST en Python con Django: pacientes, turnos, asignaciones, documentos y pagos.</li>
+              <li>Frontend en React, Vite y Material UI.</li>
+              <li>PostgreSQL en Docker y trabajo en equipo con Git.</li>
+            </ul>
+            <div class="stack"><b>Stack:</b> React, Vite, Material UI, Python, Django, PostgreSQL, Docker</div>
+            <div class="links"><a href="https://github.com/No-Country-simulation/S02-26-Equipo-26-Web-App-Development" target="_blank" rel="noopener">Código</a></div>
+          </div>
+        </div>
+      </details>
+
+    </div>
+    </div>
+    <div class="en">
+    <h1>Software projects</h1>
+    <div class="bars">
+
+      <details id="p-dulzura-en">
+        <summary>Bakery ERP with WhatsApp orders <span class="meta">Dulzura Pastelería · 2025</span></summary>
+        <div class="panel">
+          <a href="https://bakery-erp-whatsapp.vercel.app" target="_blank" rel="noopener"><img src="img/bakery-erp-whatsapp.png" alt="Dulzura Pastelería ERP dashboard" loading="lazy"></a>
+          <div>
+            <div class="label"><span class="badge b-real">REAL CLIENT</span>ERP · Automation</div>
+            <p>A custom management system that replaced the business's spreadsheets, with orders coming in through WhatsApp.</p>
+            <ul>
+              <li>Recipe and sub-recipe costing engine with automatic stock control.</li>
+              <li>Orders, cash register, expenses, customers, break-even point and reports.</li>
+              <li>Desktop installer, Gmail backups and updates from GitHub.</li>
+            </ul>
+            <div class="stack"><b>Stack:</b> React, TypeScript, Node.js, Express, Prisma, SQLite, n8n</div>
+            <div class="links"><a href="https://bakery-erp-whatsapp.vercel.app" target="_blank" rel="noopener">Live demo</a><a href="https://github.com/Lin4saurus/bakery-erp-whatsapp" target="_blank" rel="noopener">Code</a></div>
+          </div>
+        </div>
+      </details>
+
+      <details id="p-shirley-en">
+        <summary>Sales agent for TikTok live streams <span class="meta">Accesorios Shirley · 2025</span></summary>
+        <div class="panel">
+          <a href="https://tiktok-live-sales-agent.vercel.app" target="_blank" rel="noopener"><img src="img/tiktok-live-sales-agent.png" alt="TikTok live sales dashboard" loading="lazy"></a>
+          <div>
+            <div class="label"><span class="badge b-real">REAL CLIENT</span>AI · Sales agent</div>
+            <p>Buyers send a screenshot of the live stream over WhatsApp; a vision model reads the nickname and price, records the sale, groups the bill and sends a QR code for payment.</p>
+            <ul>
+              <li>Screenshots and payment receipts read with Google Gemini.</li>
+              <li>Duplicate-receipt detection (possible fraud) and an “I'll take over” mode.</li>
+              <li>Real-time board: pending, to review and paid.</li>
+            </ul>
+            <div class="stack"><b>Stack:</b> n8n, JavaScript, PostgreSQL, Gemini AI, WhatsApp API, Docker</div>
+            <div class="links"><a href="https://tiktok-live-sales-agent.vercel.app" target="_blank" rel="noopener">Live demo</a><a href="https://github.com/Lin4saurus/tiktok-live-sales-agent" target="_blank" rel="noopener">Code</a></div>
+          </div>
+        </div>
+      </details>
+
+      <details id="p-travel-en">
+        <summary>Travel advisory and booking platform <span class="meta">Universal Tours · 2024</span></summary>
+        <div class="panel">
+          <a href="https://travel-advisor-platform.vercel.app" target="_blank" rel="noopener"><img src="img/travel-advisor-platform.png" alt="Universal Tours home page" loading="lazy"></a>
+          <div>
+            <div class="label"><span class="badge b-real">REAL CLIENT</span>Web platform</div>
+            <p>Destinations, packages, experiences and events with custom quote requests and a protected admin panel.</p>
+            <ul>
+              <li>Trip search by destination, type, duration and budget.</li>
+              <li>Quote requests stored in Supabase.</li>
+              <li>Admin panel with Supabase Auth and authorization on every server action.</li>
+            </ul>
+            <div class="stack"><b>Stack:</b> Next.js 16, React 19, TypeScript, Tailwind CSS v4, Supabase</div>
+            <div class="links"><a href="https://travel-advisor-platform.vercel.app" target="_blank" rel="noopener">Live site</a><a href="https://github.com/Lin4saurus/travel-advisor-platform" target="_blank" rel="noopener">Code</a></div>
+          </div>
+        </div>
+      </details>
+
+      <details id="p-telecom-en">
+        <summary>B2B catalog for a telecom wholesaler <span class="meta">Teleserv Group · 2023</span></summary>
+        <div class="panel">
+          <a href="https://telecom-b2b-catalog.vercel.app" target="_blank" rel="noopener"><img src="img/telecom-b2b-catalog.png" alt="Teleserv Group home page" loading="lazy"></a>
+          <div>
+            <div class="label"><span class="badge b-real">REAL CLIENT</span>B2B website</div>
+            <p>A corporate site designed to turn visitors into sales leads: catalog → product page → quote request.</p>
+            <ul>
+              <li>Catalog filterable by brand and technology, with statically generated product pages (SEO).</li>
+              <li>A quote form that already knows which product is being requested.</li>
+              <li>Row Level Security: the public key can only insert, never read.</li>
+            </ul>
+            <div class="stack"><b>Stack:</b> Next.js, TypeScript, Tailwind CSS, Supabase, PostgreSQL</div>
+            <div class="links"><a href="https://telecom-b2b-catalog.vercel.app" target="_blank" rel="noopener">Live site</a><a href="https://github.com/Lin4saurus/telecom-b2b-catalog" target="_blank" rel="noopener">Code</a></div>
+          </div>
+        </div>
+      </details>
+
+      <details id="p-medicae-en">
+        <summary>Medicae: caregiver and patient management <span class="meta">No Country (hackathon) · 2026</span></summary>
+        <div class="panel">
+          <div class="placeholder"><div>Medicae<small>Patient care platform</small></div></div>
+          <div>
+            <div class="label"><span class="badge b-hack">HACKATHON</span>Job simulation · Team of 4</div>
+            <p>A web app built as a team that connects families, caregivers and administrators, with a dashboard for each role.</p>
+            <ul>
+              <li>Python REST API with Django: patients, shifts, assignments, documents and payments.</li>
+              <li>Frontend with React, Vite and Material UI.</li>
+              <li>PostgreSQL in Docker and team collaboration with Git.</li>
+            </ul>
+            <div class="stack"><b>Stack:</b> React, Vite, Material UI, Python, Django, PostgreSQL, Docker</div>
+            <div class="links"><a href="https://github.com/No-Country-simulation/S02-26-Equipo-26-Web-App-Development" target="_blank" rel="noopener">Code</a></div>
+          </div>
+        </div>
+      </details>
+
+    </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCIA -->
+  <section class="tab" id="experiencia">
+    <div class="es">
+    <h1>Experiencia laboral</h1>
+    <p class="intro">En los productos que entregué a clientes: el problema, cómo lo resolví y el producto final. En las empresas que me contrataron: mi rol y lo que hice.</p>
+
+    <div class="job">
+      <div class="job-head"><b>Outlier</b><span>05/2026 – 09/2026 · 5 meses</span></div>
+      <div class="role">Evaluadora de agentes de IA para programación (en inglés)</div>
+      <p class="k"><b>Mi rol:</b> Evaluar y comparar agentes de IA que programan, para que los equipos que entrenan estos modelos sepan cuál trabaja mejor y por qué.</p>
+      <p class="k"><b>Qué hice:</b></p>
+      <ul>
+          <li>Guiaba a dos agentes distintos por la misma tarea de software, dividida en varias etapas, desde un IDE en la nube y la terminal.</li>
+          <li>No me fiaba del “terminado” del agente: revisaba cada etapa a mano y corría pruebas. Si una etapa quedaba incompleta, escribía la siguiente instrucción para cerrar justo lo que faltaba.</li>
+          <li>Comparaba los dos recorridos completos y los calificaba en corrección, comportamiento del agente, comunicación y estilo de código. Justificaba cada nota por escrito en inglés, con evidencia del código final.</li>
+          <li>Detectaba fallas típicas de los agentes: se quedaban trabados, tocaban archivos fuera de lo pedido, escribían código inflado o decían que algo funcionaba sin probarlo.</li>
+      </ul>
+      <p class="k"><b>Resultado:</b> Evaluaciones que se usan para mejorar cómo programan los modelos de IA. Además, entrené el ojo para revisar código ajeno, algo que aplico en mis propios proyectos.</p>
+    </div>
+    <div class="job extra">
+      <div class="job-head"><b>No Country</b><span>02/2026 – 03/2026 · 1 mes</span></div>
+      <div class="role">Simulación laboral (hackathon) · experiencia extra · equipo de 4</div>
+      <p class="k"><b>Problema:</b> El reto de la simulación: una familia contrata cuidadoras para un paciente y quiere saber quién lo cuida cada día. La administración asigna turnos, revisa documentos y paga a las cuidadoras, y cada cuidadora necesita ver solo sus turnos. Cada uno necesita información distinta y nadie debería ver la de otro.</p>
+      <p class="k"><b>Cómo lo resolví:</b></p>
+      <ul>
+          <li>API REST en Python con Django, separada por dominios: pacientes, turnos, asignaciones, documentos y pagos.</li>
+          <li>Paneles distintos por rol (admin, cuidadora, familia) en React con Material UI.</li>
+          <li>Trabajo en equipo con Git sobre un mismo repositorio; PostgreSQL en Docker para que todo el equipo tuviera el mismo entorno.</li>
+      </ul>
+      <p class="k"><b>Resultado:</b> Aplicación funcional entregada en el plazo de la simulación. <a href="#proyectos" data-open="p-medicae">Ver proyecto</a></p>
+    </div>
+    <div class="job">
+      <div class="job-head"><b>Quicksell.store</b><span>01/2026 – 09/2026 · 9 meses · Remoto</span></div>
+      <div class="role">Desarrolladora Full Stack</div>
+      <p class="k"><b>Mi rol:</b> Desarrollo Full Stack en un e-commerce de alto tráfico: migración del código a TypeScript, rendimiento, SEO y rediseño de los módulos de Comercio, Lista de seguimiento y Sorteo.</p>
+      <p class="k"><b>Qué hice:</b></p>
+      <ul>
+          <li>Migré el código heredado a TypeScript para que los errores aparecieran al compilar y no en producción.</li>
+          <li>Cambié las pruebas de React Testing Library a Vitest, que corre más rápido y se integra mejor con el resto del proyecto.</li>
+          <li>Analicé el tamaño de los paquetes para encontrar qué hacía lento el sitio; apliqué carga diferida, división de código y optimización de imágenes.</li>
+          <li>Rediseñé los tres módulos con componentes reutilizables, para no repetir la misma lógica en cada pantalla.</li>
+          <li>Mejoré el SEO con metaetiquetas, datos estructurados y Core Web Vitals.</li>
+      </ul>
+      <p class="k"><b>Resultado:</b> Una base de código tipada y más fácil de mantener, un sitio más rápido y flujos de conversión más claros en los módulos principales.</p>
+    </div>
+    <div class="job">
+      <div class="job-head"><b>Accesorios Shirley</b><span>09/2025 – 11/2025 · 3 meses</span></div>
+      <div class="role">Desarrolladora de automatización e IA</div>
+      <p class="k"><b>Problema:</b> La vendedora vende en vivo por TikTok y los compradores le escriben por WhatsApp con una captura del live. Anotaba cada venta a mano, perseguía los cobros uno por uno y le llegaban comprobantes de pago reutilizados.</p>
+      <p class="k"><b>Cómo lo resolví:</b></p>
+      <ul>
+          <li>Una IA de visión (Gemini) lee en la captura el nombre y el precio que la vendedora escribe a mano en la bolsa, y crea la venta.</li>
+          <li>Agrupé las ventas por cliente y por live, no por fecha, porque los clientes pagan al día siguiente y no quería cuentas partidas.</li>
+          <li>Puse las reglas críticas (totales, estados, conciliación) en funciones y triggers de PostgreSQL, para que se cumplan igual si el cambio viene de WhatsApp o del panel.</li>
+          <li>La IA precarga los datos del comprobante, pero dar algo por pagado siempre lo decide la vendedora. Si se repite un número de operación, se marca como posible estafa.</li>
+          <li>Un interruptor permite usar Evolution API en pruebas y la API oficial de WhatsApp en producción, sin cambiar los flujos.</li>
+      </ul>
+      <p class="k"><b>Resultado:</b> <b>Agente de ventas para lives de TikTok.</b> La vendedora ya no registra ventas a mano: solo revisa y confirma pagos desde un panel en tiempo real. <a href="#proyectos" data-open="p-shirley">Ver proyecto</a></p>
+    </div>
+    <div class="job">
+      <div class="job-head"><b>Dulzura Pastelería</b><span>05/2025 – 07/2025 · 3 meses</span></div>
+      <div class="role">Desarrolladora Full Stack</div>
+      <p class="k"><b>Problema:</b> La dueña calculaba el costo de cada queque en varios Excel con fórmulas rotas: según una de las hojas, un relleno costaba 17.500 Bs. Ponía precios sin saber cuánto ganaba realmente por producto, se enteraba de que faltaba un insumo cuando ya se había acabado y los pedidos le llegaban por WhatsApp mezclados con todo lo demás.</p>
+      <p class="k"><b>Cómo lo resolví:</b></p>
+      <ul>
+          <li>Modelé rellenos y masas como sub-recetas reutilizables, con detección de ciclos en el motor de costeo para evitar recetas que se incluyan a sí mismas.</li>
+          <li>Revisé los Excel con la dueña y documenté más de 20 decisiones: qué precio manda cuando dos hojas no coinciden, qué fórmulas estaban rotas y qué datos se descartaban.</li>
+          <li>Elegí una app de escritorio con SQLite local, respaldo automático por Gmail y actualización desde GitHub, porque el negocio tiene que seguir funcionando aunque falle internet.</li>
+          <li>Conecté los pedidos de WhatsApp con n8n para que entren directo al sistema.</li>
+      </ul>
+      <p class="k"><b>Resultado:</b> <b>ERP de pastelería con pedidos por WhatsApp.</b> Costo y margen reales de cada producto, inventario que se descuenta solo con cada venta y los errores del Excel corregidos. <a href="#proyectos" data-open="p-dulzura">Ver proyecto</a></p>
+    </div>
+    <div class="job">
+      <div class="job-head"><b>OtherBrain</b><span>01/2025 – 04/2025 · 4 meses</span></div>
+      <div class="role">Desarrolladora n8n</div>
+      <p class="k"><b>Mi rol:</b> Automatizar con n8n el recorrido de los pedidos que llegaban por WhatsApp hasta el equipo de producción, y construir paneles para seguirlos.</p>
+      <p class="k"><b>Qué hice:</b></p>
+      <ul>
+          <li>Integré WhatsApp Business con n8n para que cada pedido llegara directo al equipo de producción.</li>
+          <li>Guardé los datos operativos en Supabase/PostgreSQL y los sincronicé con Google Sheets, la herramienta que el equipo ya usaba para sus informes.</li>
+          <li>Construí paneles en React y TypeScript para ver el flujo de pedidos automatizados en tiempo real.</li>
+      </ul>
+      <p class="k"><b>Resultado:</b> Seguimiento de pedidos visible para todo el equipo, sin pasar datos a mano entre herramientas.</p>
+    </div>
+    <div class="job">
+      <div class="job-head"><b>Universal Tours LTDA.</b><span>01/2024 – 03/2024 · 3 meses</span></div>
+      <div class="role">Desarrolladora Frontend</div>
+      <p class="k"><b>Problema:</b> La agencia vendía paquetes a destinos como Punta Cana, Salvador de Bahía o Guarujá cotizando cada viaje a mano. Los clientes preguntaban por correo o por teléfono, las consultas se perdían entre mensajes y no había un lugar donde ver todos los destinos y paquetes disponibles.</p>
+      <p class="k"><b>Cómo lo resolví:</b></p>
+      <ul>
+          <li>Integré APIs de viajes de terceros para los paquetes y reservas (Punta Cana, Salvador de Bahía, Guarujá).</li>
+          <li>Diseñé el esquema de base de datos y la arquitectura de la API, con las cotizaciones guardadas en la base y no perdidas en el correo.</li>
+          <li>En el panel admin, la autorización se comprueba en cada página y en cada acción del servidor, no solo al iniciar sesión.</li>
+      </ul>
+      <p class="k"><b>Resultado:</b> <b>Plataforma de asesoría y venta de viajes.</b> Un sitio donde los clientes encuentran viajes y piden cotización, y un panel donde la agencia las gestiona. <a href="#proyectos" data-open="p-travel">Ver proyecto</a></p>
+    </div>
+    <div class="job">
+      <div class="job-head"><b>Teleserv Group</b><span>01/2023 – 04/2023 · 4 meses</span></div>
+      <div class="role">Desarrolladora Frontend</div>
+      <p class="k"><b>Problema:</b> Teleserv vende equipos de fibra óptica y redes GPON a otros operadores, no al público. Los técnicos que entraban al sitio no encontraban rápido el equipo que buscaban y, para pedir un precio, tenían que escribir un correo explicando qué producto querían. Muchas de esas consultas nunca llegaban.</p>
+      <p class="k"><b>Cómo lo resolví:</b></p>
+      <ul>
+          <li>Diseñé el recorrido catálogo → ficha de producto → cotización. El formulario ya sabe qué producto se consulta.</li>
+          <li>Dejé el catálogo en código tipado y no en la base de datos: es estable y curado, así que no hacía falta un panel solo para editarlo.</li>
+          <li>Generé las fichas de forma estática para que carguen rápido y posicionen bien en buscadores.</li>
+          <li>Protegí los contactos con Row Level Security: la clave pública del sitio solo puede guardar formularios, nunca leerlos.</li>
+      </ul>
+      <p class="k"><b>Resultado:</b> <b>Catálogo B2B para mayorista de telecomunicaciones.</b> Un sitio que capta cotizaciones calificadas, con un panel interno para el equipo comercial. <a href="#proyectos" data-open="p-telecom">Ver proyecto</a></p>
+    </div>
+
+    <h2>Habilidades</h2>
+    <div class="skills">
+      <p><b>Frontend:</b> React, Next.js, TypeScript, JavaScript, Tailwind CSS, HTML5, CSS3</p>
+      <p><b>Backend:</b> Node.js, Express, NestJS, Python, Django, REST APIs, Prisma</p>
+      <p><b>Bases de datos:</b> PostgreSQL, MongoDB, MySQL, Supabase, SQLite</p>
+      <p><b>Automatización:</b> n8n, WhatsApp API, Gemini AI, Docker, Vercel</p>
+    </div>
+
+    <h2>Formación</h2>
+    <div class="job"><div class="job-head"><b>Universidad Aquino Bolivia (UDABOL)</b><span>2020 – 2023</span></div><div class="role">Ingeniería en Sistemas · Egresada (titulación en curso)</div></div>
+    <div class="job"><div class="job-head"><b>San Pablo Instituto</b><span>2019</span></div><div class="role">Certificado en Diseño Gráfico</div></div>
+    <div class="job"><div class="job-head"><b>Idiomas</b><span></span></div><div class="role">Español nativo · Inglés (EF SET 61/100, julio 2026) · <a href="https://cert.efset.org/quST8z" target="_blank" rel="noopener">Ver certificado</a></div></div>
+    </div>
+    <div class="en">
+    <h1>Work experience</h1>
+    <p class="intro">For products I delivered to clients: the problem, how I solved it and the final product. For companies that hired me: my role and what I did.</p>
+
+    <div class="job">
+      <div class="job-head"><b>Outlier</b><span>05/2026 – 09/2026 · 5 months</span></div>
+      <div class="role">AI coding agent evaluator</div>
+      <p class="k"><b>My role:</b> Evaluating and comparing AI coding agents, so the teams that train these models know which one performs better and why.</p>
+      <p class="k"><b>What I did:</b></p>
+      <ul>
+          <li>Guided two different agents through the same multi-step software task, from a cloud IDE and the terminal.</li>
+          <li>I didn't take the agent's “done” at face value: I checked every step by hand and ran tests. When a step was incomplete, I wrote the next instruction to close exactly the gap that was left.</li>
+          <li>Compared both full runs and graded them on correctness, agent behavior, communication and code style, justifying every grade in writing with evidence from the final code.</li>
+          <li>Spotted typical agent failures: getting stuck, touching files outside the requested scope, writing bloated code or claiming something worked without testing it.</li>
+      </ul>
+      <p class="k"><b>Result:</b> Evaluations used to improve how AI models write code. It also trained my eye for reviewing other people's code, which I now apply to my own projects.</p>
+    </div>
+    <div class="job extra">
+      <div class="job-head"><b>No Country</b><span>02/2026 – 03/2026 · 1 month</span></div>
+      <div class="role">Job simulation (hackathon) · additional experience · team of 4</div>
+      <p class="k"><b>Problem:</b> The simulation's challenge: a family hires caregivers for a patient and wants to know who is looking after them each day. Administrators assign shifts, review documents and pay the caregivers, and each caregiver only needs to see their own shifts. Everyone needs different information, and no one should see anyone else's.</p>
+      <p class="k"><b>How I solved it:</b></p>
+      <ul>
+          <li>Python REST API with Django, split by domain: patients, shifts, assignments, documents and payments.</li>
+          <li>Separate dashboards per role (admin, caregiver, family) in React with Material UI.</li>
+          <li>Team collaboration with Git on a shared repository; PostgreSQL in Docker so everyone had the same environment.</li>
+      </ul>
+      <p class="k"><b>Result:</b> A working application delivered within the simulation deadline. <a href="#proyectos" data-open="p-medicae">See project</a></p>
+    </div>
+    <div class="job">
+      <div class="job-head"><b>Quicksell.store</b><span>01/2026 – 09/2026 · 9 months · Remote</span></div>
+      <div class="role">Full Stack Developer</div>
+      <p class="k"><b>My role:</b> Full Stack development on a high-traffic e-commerce platform: migrating the codebase to TypeScript, performance, SEO and redesigning the Commerce, Watchlist and Giveaway modules.</p>
+      <p class="k"><b>What I did:</b></p>
+      <ul>
+          <li>Migrated the legacy code to TypeScript so errors show up at compile time instead of in production.</li>
+          <li>Moved the test suite from React Testing Library to Vitest, which runs faster and fits better with the rest of the project.</li>
+          <li>Analyzed bundle sizes to find what was slowing the site down; applied lazy loading, code splitting and image optimization.</li>
+          <li>Redesigned the three modules with reusable components, so the same logic isn't repeated on every screen.</li>
+          <li>Improved SEO with meta tags, structured data and Core Web Vitals.</li>
+      </ul>
+      <p class="k"><b>Result:</b> A typed codebase that is easier to maintain, a faster site and clearer conversion flows in the main modules.</p>
+    </div>
+    <div class="job">
+      <div class="job-head"><b>Accesorios Shirley</b><span>09/2025 – 11/2025 · 3 months</span></div>
+      <div class="role">Automation & AI Developer</div>
+      <p class="k"><b>Problem:</b> The seller sells live on TikTok, and buyers message her on WhatsApp with a screenshot of the stream. She logged every sale by hand, chased payments one by one and kept receiving reused payment receipts.</p>
+      <p class="k"><b>How I solved it:</b></p>
+      <ul>
+          <li>A vision model (Gemini) reads the name and price the seller handwrites on the bag in the screenshot, and creates the sale.</li>
+          <li>I grouped sales by customer and by live stream, not by date, because customers pay the next day and I didn't want split bills.</li>
+          <li>I put the critical rules (totals, statuses, reconciliation) in PostgreSQL functions and triggers, so they hold whether a change comes from WhatsApp or from the dashboard.</li>
+          <li>The AI pre-fills the receipt data, but marking something as paid is always the seller's call. If a transaction number is reused, it is flagged as possible fraud.</li>
+          <li>A switch lets the system use Evolution API for testing and the official WhatsApp API in production, without changing the workflows.</li>
+      </ul>
+      <p class="k"><b>Result:</b> <b>Sales agent for TikTok live streams.</b> The seller no longer logs sales by hand: she only reviews and confirms payments from a real-time dashboard. <a href="#proyectos" data-open="p-shirley">See project</a></p>
+    </div>
+    <div class="job">
+      <div class="job-head"><b>Dulzura Pastelería</b><span>05/2025 – 07/2025 · 3 months</span></div>
+      <div class="role">Full Stack Developer</div>
+      <p class="k"><b>Problem:</b> The owner worked out the cost of each cake across several spreadsheets with broken formulas: according to one sheet, a single filling cost 17,500 Bs. She set prices without knowing her real profit per product, found out an ingredient was missing only once it had run out, and orders arrived on WhatsApp mixed in with everything else.</p>
+      <p class="k"><b>How I solved it:</b></p>
+      <ul>
+          <li>Modeled fillings and doughs as reusable sub-recipes, with cycle detection in the costing engine to prevent recipes that include themselves.</li>
+          <li>Went through the spreadsheets with the owner and documented 20+ decisions: which price wins when two sheets disagree, which formulas were broken and which data to drop.</li>
+          <li>Chose a desktop app with a local SQLite database, automatic Gmail backups and updates from GitHub, because the business has to keep running even when the internet goes down.</li>
+          <li>Connected WhatsApp orders through n8n so they go straight into the system.</li>
+      </ul>
+      <p class="k"><b>Result:</b> <b>Bakery ERP with WhatsApp orders.</b> Real cost and margin for every product, inventory that updates itself with each sale, and the spreadsheet errors fixed. <a href="#proyectos" data-open="p-dulzura">See project</a></p>
+    </div>
+    <div class="job">
+      <div class="job-head"><b>OtherBrain</b><span>01/2025 – 04/2025 · 4 months</span></div>
+      <div class="role">n8n Developer</div>
+      <p class="k"><b>My role:</b> Automating with n8n the path of orders arriving on WhatsApp to the production team, and building dashboards to track them.</p>
+      <p class="k"><b>What I did:</b></p>
+      <ul>
+          <li>Integrated WhatsApp Business with n8n so every order went straight to the production team.</li>
+          <li>Stored operational data in Supabase/PostgreSQL and synced it with Google Sheets, the tool the team already used for reporting.</li>
+          <li>Built React and TypeScript dashboards to follow the automated order flow in real time.</li>
+      </ul>
+      <p class="k"><b>Result:</b> Order tracking visible to the whole team, with no manual copying between tools.</p>
+    </div>
+    <div class="job">
+      <div class="job-head"><b>Universal Tours LTDA.</b><span>01/2024 – 03/2024 · 3 months</span></div>
+      <div class="role">Frontend Developer</div>
+      <p class="k"><b>Problem:</b> The agency sold packages to destinations like Punta Cana, Salvador de Bahía and Guarujá by quoting every trip by hand. Customers asked by email or phone, inquiries got lost between messages, and there was no single place to see every destination and package on offer.</p>
+      <p class="k"><b>How I solved it:</b></p>
+      <ul>
+          <li>Integrated third-party travel APIs for packages and bookings (Punta Cana, Salvador de Bahía, Guarujá).</li>
+          <li>Designed the database schema and API architecture, storing quotes in the database instead of losing them in email.</li>
+          <li>In the admin panel, authorization is checked on every page and every server action, not just at login.</li>
+      </ul>
+      <p class="k"><b>Result:</b> <b>Travel advisory and booking platform.</b> A site where customers find trips and request quotes, and a panel where the agency manages them. <a href="#proyectos" data-open="p-travel">See project</a></p>
+    </div>
+    <div class="job">
+      <div class="job-head"><b>Teleserv Group</b><span>01/2023 – 04/2023 · 4 months</span></div>
+      <div class="role">Frontend Developer</div>
+      <p class="k"><b>Problem:</b> Teleserv sells fiber-optic and GPON network equipment to other operators, not to the public. Technicians who visited the site couldn't quickly find the equipment they needed, and to get a price they had to write an email explaining which product they wanted. Many of those inquiries never came in.</p>
+      <p class="k"><b>How I solved it:</b></p>
+      <ul>
+          <li>Designed the catalog → product page → quote flow. The form already knows which product is being requested.</li>
+          <li>Kept the catalog in typed code instead of the database: it is stable and curated, so there was no need for an admin screen just to edit it.</li>
+          <li>Generated product pages statically so they load fast and rank well in search engines.</li>
+          <li>Protected contact data with Row Level Security: the site's public key can only save forms, never read them.</li>
+      </ul>
+      <p class="k"><b>Result:</b> <b>B2B catalog for a telecom wholesaler.</b> A site that captures qualified quote requests, with an internal panel for the sales team. <a href="#proyectos" data-open="p-telecom">See project</a></p>
+    </div>
+
+    <h2>Skills</h2>
+    <div class="skills">
+      <p><b>Frontend:</b> React, Next.js, TypeScript, JavaScript, Tailwind CSS, HTML5, CSS3</p>
+      <p><b>Backend:</b> Node.js, Express, NestJS, Python, Django, REST APIs, Prisma</p>
+      <p><b>Databases:</b> PostgreSQL, MongoDB, MySQL, Supabase, SQLite</p>
+      <p><b>Automation:</b> n8n, WhatsApp API, Gemini AI, Docker, Vercel</p>
+    </div>
+
+    <h2>Education</h2>
+    <div class="job"><div class="job-head"><b>Universidad Aquino Bolivia (UDABOL)</b><span>2020 – 2023</span></div><div class="role">Systems Engineering · Coursework completed (degree pending final defense)</div></div>
+    <div class="job"><div class="job-head"><b>San Pablo Instituto</b><span>2019</span></div><div class="role">Graphic Design Certificate</div></div>
+    <div class="job"><div class="job-head"><b>Languages</b><span></span></div><div class="role">Spanish (native) · English (EF SET 61/100, July 2026) · <a href="https://cert.efset.org/quST8z" target="_blank" rel="noopener">View certificate</a></div></div>
+    </div>
+  </section>
+
+  <!-- CV -->
+  <section class="tab" id="cv">
+    <p class="es">Descarga mi CV en el idioma que prefieras (última actualización: <span class="upd-es"></span>).</p>
+    <p class="en">Download my resume in the language you prefer (last updated on <span class="upd-en"></span>).</p>
+    <div class="cv-dl">
+      <a href="Carolina_Aranibar_CV_ES.pdf" download="Carolina_Aranibar_CV_ES.pdf" hreflang="es"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg><span><b>CV_ES</b> · Español</span></a>
+      <a href="Carolina_Aranibar_CV_EN.pdf" download="Carolina_Aranibar_CV_EN.pdf" hreflang="en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg><span><b>CV_EN</b> · English</span></a>
+    </div>
+    <iframe class="cv-frame es" src="Carolina_Aranibar_CV_ES.pdf" title="CV de Carolina Aranibar" loading="lazy"></iframe>
+    <iframe class="cv-frame en" src="Carolina_Aranibar_CV_EN.pdf" title="Carolina Aranibar resume" loading="lazy"></iframe>
+  </section>
+</div>
+
+<script>
+// Fecha de "última actualización": cámbiala cuando edites el portafolio.
+const ACTUALIZADO = { es: "20 de noviembre de 2026", en: "November 20, 2026" };
+document.querySelectorAll(".upd-es").forEach(e => e.textContent = ACTUALIZADO.es);
+document.querySelectorAll(".upd-en").forEach(e => e.textContent = ACTUALIZADO.en);
+
+// idioma: ?lang=en en la URL > preferencia guardada > idioma del navegador
+const TITLES = { es: "Carolina Aranibar", en: "Carolina Aranibar" };
+function setLang(l, save){
+  document.documentElement.lang = l;
+  document.title = TITLES[l];
+  if (save) try{ localStorage.setItem("lang", l) }catch(e){}
+}
+let lang = new URLSearchParams(location.search).get("lang");
+if (lang !== "es" && lang !== "en") {
+  try{ lang = localStorage.getItem("lang") }catch(e){ lang = null }
+  if (lang !== "es" && lang !== "en") lang = (navigator.language || "es").toLowerCase().startsWith("es") ? "es" : "en";
+}
+setLang(lang, false);
+document.getElementById("langBtn").onclick = () => {
+  const l = document.documentElement.lang === "es" ? "en" : "es";
+  setLang(l, true);
+  const u = new URL(location.href); u.searchParams.set("lang", l); history.replaceState(null, "", u);
+};
+
+// pestañas
+const tabs = ["inicio", "proyectos", "experiencia", "cv"];
+function show(id){
+  if (!tabs.includes(id)) id = "inicio";
+  document.querySelectorAll(".tab").forEach(t => t.classList.toggle("active", t.id === id));
+  document.querySelectorAll("nav a").forEach(a => a.classList.toggle("active", a.dataset.tab === id));
+}
+addEventListener("hashchange", () => { show(location.hash.slice(1)); scrollTo(0, 0); });
+show(location.hash.slice(1));
+
+// enlaces que abren un proyecto concreto
+document.querySelectorAll("[data-open]").forEach(a => a.addEventListener("click", e => {
+  e.preventDefault();
+  history.pushState(null, "", "#proyectos"); show("proyectos");
+  const d = document.getElementById(a.dataset.open + (document.documentElement.lang === "en" ? "-en" : ""));
+  d.open = true; d.scrollIntoView({ behavior: "smooth", block: "start" });
+}));
+
+// tema claro/oscuro
+try{ const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t }catch(e){}
+document.getElementById("themeBtn").onclick = () => {
+  const cur = document.documentElement.dataset.theme;
+  const dark = cur ? cur === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  const t = dark ? "light" : "dark";
+  document.documentElement.dataset.theme = t;
+  try{ localStorage.setItem("theme", t) }catch(e){}
+};
+</script>
+</body>
+</html>
